@@ -230,7 +230,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-17 16:53:00" itemprop="dateModified" datetime="2019-09-17T16:53:00+08:00">2019-09-17</time>
+                <time title="Modified: 2019-09-17 17:47:03" itemprop="dateModified" datetime="2019-09-17T17:47:03+08:00">2019-09-17</time>
               </span>
             
           
@@ -247,25 +247,14 @@
 
       
           <h3 id="自动标注和错误类型评估——语法错误纠正"><a href="#自动标注和错误类型评估——语法错误纠正" class="headerlink" title="自动标注和错误类型评估——语法错误纠正"></a>自动标注和错误类型评估——语法错误纠正</h3><p>论文地址：<a href="https://www.aclweb.org/anthology/P17-1074" target="_blank" rel="noopener">https://www.aclweb.org/anthology/P17-1074</a><br>github项目地址：<a href="https://github.com/chrisjbryant/errant" target="_blank" rel="noopener">https://github.com/chrisjbryant/errant</a></p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><blockquote>
-<p>Errant是一个语法错误标注工具，可以从平行语料（原句，纠正过的句子）中自动提取修改的内容（edits），并进行分类。方法包含两个主要步骤：</p>
-<blockquote>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Errant是一个语法错误标注工具，可以从平行语料（原句，纠正过的句子）中自动提取修改的内容（edits），并进行分类。方法包含两个主要步骤：</p>
 <ol>
 <li>通过语言学增强对齐算法找出平行语料间的edits；</li>
 <li>通过新的，基于规则的框架，该框架仅仅依赖数据集不可知的信息（词根、词性标注），将edits进行分类。</li>
 </ol>
-</blockquote>
-</blockquote>
-<p><strong>better to know</strong></p>
-<blockquote>
-<p>edits → 编辑的内容<br>linguistically-enhanced alignment algorithm → 语言学增强对齐算法</p>
-</blockquote>
-<h3 id="编辑提取"><a href="#编辑提取" class="headerlink" title="编辑提取"></a>编辑提取</h3><blockquote>
-<p>自动标注的第一步是编辑提取（edits extraction）。<br><img src="/images/errant/1.png" alt="sentence alignment"></p>
-</blockquote>
-<blockquote>
+<p><strong>better to know</strong><br>edits → 编辑的内容<br>linguistically-enhanced alignment algorithm → 语言学增强对齐算法</p>
+<h3 id="编辑提取"><a href="#编辑提取" class="headerlink" title="编辑提取"></a>编辑提取</h3><p>自动标注的第一步是编辑提取（edits extraction）。<br><img src="/images/errant/1.png" alt="sentence alignment"></p>
 <p>Felice提出了一种新方法来提取edits，融合了一套合并规则的语言学增强对齐算法。更特别的是，融入了不同的语言学信息（比如词性标注和词根）到编辑距离的代价函数中，使得具有相似语言学属性的token能对齐。</p>
-</blockquote>
 <h3 id="自动错误分类"><a href="#自动错误分类" class="headerlink" title="自动错误分类"></a>自动错误分类</h3><ol>
 <li><p>基于规则的错误分类框架<br>根据词性标注，编写了50条规则来进行分类。错误类型主要分为25种。</p>
 </li>
@@ -273,19 +262,15 @@
 </li>
 <li><p>自动标注<br>使用到以下工具：<br>spaCy: 词性标注、词性还原、句法依存解析<br>NLTK: 词干提取<br>Hunspell GB-large word list: non-word errors</p>
 </li>
-<li><p>错误类别<br>错误类别有25种,前缀有：’M’, ‘R’, ‘U’。通过前缀和后缀的组合，能从不同的层面考察系统的表现。<br>‘M’: Missing<br>‘R’: Replacement<br>‘U’: Unnecessary</p>
+<li><p>错误类别<br>错误类别有25种，前缀有：’M’, ‘R’, ‘U’。通过前缀和后缀的组合，能从不同的层面考察系统的表现。<br>‘M’: Missing<br>‘R’: Replacement<br>‘U’: Unnecessary</p>
 </li>
 </ol>
 <h3 id="错误类型得分"><a href="#错误类型得分" class="headerlink" title="错误类型得分"></a>错误类型得分</h3><ol>
-<li><p>Gold Reference VS Auto Reference</p>
-<blockquote>
-<blockquote>
+<li>Gold Reference VS Auto Reference</li>
+</ol>
 <p><strong>Gold Reference</strong>专家批注<br><strong>Auto Reference</strong>自动批注<br>在CoNLL-2014 共享任务中进行测评，结果显示，自动批注质量和专家批注效果一样好。</p>
-</blockquote>
-</blockquote>
-</li>
-<li><p>与M2评分对比<br>M2评分偏高</p>
-</li>
+<ol start="2">
+<li>与M2评分对比<br>M2评分偏高</li>
 </ol>
 <h3 id="CoNLL-2014-共享任务分析"><a href="#CoNLL-2014-共享任务分析" class="headerlink" title="CoNLL-2014 共享任务分析"></a>CoNLL-2014 共享任务分析</h3><p>选择CoNLL-2014 共享任务的数据来测试ERRANT工具，因为该任务收集了最多的GEC系统生成的公开数据。</p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>ERRANT为GEC错误类型评估提供便利，并且将现存的错误纠正语料标准化，减少标注的工作量。</p>
