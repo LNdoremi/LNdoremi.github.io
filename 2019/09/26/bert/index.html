@@ -55,21 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="自动标注和错误类型评估——语法错误纠正论文地址：https://www.aclweb.org/anthology/P17-1074github地址：https://github.com/chrisjbryant/errant better to knowedits → 编辑的内容linguistically-enhanced alignment algorithm → 语言学增强对齐算法Gold">
-<meta name="keywords" content="nlp, gec">
+  <meta name="description" content="原文地址：https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/ BERT - NLP最先进的语言模型BERT(Bidirectional Encoder Representation from Transformers) 是最近谷歌AI语言研究员发表的一篇文章。它已经在机器学习社">
+<meta name="keywords" content="nlp, translation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="errant">
-<meta property="og:url" content="http://yoursite.com/2019/09/16/errant/index.html">
+<meta property="og:title" content="Bert">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/bert/index.html">
 <meta property="og:site_name" content="LNdoremi">
-<meta property="og:description" content="自动标注和错误类型评估——语法错误纠正论文地址：https://www.aclweb.org/anthology/P17-1074github地址：https://github.com/chrisjbryant/errant better to knowedits → 编辑的内容linguistically-enhanced alignment algorithm → 语言学增强对齐算法Gold">
+<meta property="og:description" content="原文地址：https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/ BERT - NLP最先进的语言模型BERT(Bidirectional Encoder Representation from Transformers) 是最近谷歌AI语言研究员发表的一篇文章。它已经在机器学习社">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/images/errant/1.png">
-<meta property="og:updated_time" content="2019-09-18T03:12:58.840Z">
+<meta property="og:image" content="http://yoursite.com/images/bert/1.png">
+<meta property="og:updated_time" content="2019-09-26T10:32:25.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="errant">
-<meta name="twitter:description" content="自动标注和错误类型评估——语法错误纠正论文地址：https://www.aclweb.org/anthology/P17-1074github地址：https://github.com/chrisjbryant/errant better to knowedits → 编辑的内容linguistically-enhanced alignment algorithm → 语言学增强对齐算法Gold">
-<meta name="twitter:image" content="http://yoursite.com/images/errant/1.png">
-  <link rel="canonical" href="http://yoursite.com/2019/09/16/errant/">
+<meta name="twitter:title" content="Bert">
+<meta name="twitter:description" content="原文地址：https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/ BERT - NLP最先进的语言模型BERT(Bidirectional Encoder Representation from Transformers) 是最近谷歌AI语言研究员发表的一篇文章。它已经在机器学习社">
+<meta name="twitter:image" content="http://yoursite.com/images/bert/1.png">
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/bert/">
 
 
 <script id="page-configurations">
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title>errant | LNdoremi</title>
+  <title>Bert | LNdoremi</title>
   
 
 
@@ -198,7 +198,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/errant/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/bert/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LNdoremi">
@@ -210,7 +210,7 @@
       <meta itemprop="name" content="LNdoremi">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">errant
+        <h1 class="post-title" itemprop="name headline">Bert
 
           
         </h1>
@@ -226,19 +226,11 @@
                 
               
 
-              <time title="Created: 2019-09-16 16:41:56" itemprop="dateCreated datePublished" datetime="2019-09-16T16:41:56+08:00">2019-09-16</time>
+              <time title="Created: 2019-09-26 15:50:17 / Modified: 18:32:25" itemprop="dateCreated datePublished" datetime="2019-09-26T15:50:17+08:00">2019-09-26</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-18 11:12:58" itemprop="dateModified" datetime="2019-09-18T11:12:58+08:00">2019-09-18</time>
-              </span>
             
           
 
@@ -253,34 +245,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="自动标注和错误类型评估——语法错误纠正"><a href="#自动标注和错误类型评估——语法错误纠正" class="headerlink" title="自动标注和错误类型评估——语法错误纠正"></a>自动标注和错误类型评估——语法错误纠正</h3><p>论文地址：<a href="https://www.aclweb.org/anthology/P17-1074" target="_blank" rel="noopener">https://www.aclweb.org/anthology/P17-1074</a><br>github地址：<a href="https://github.com/chrisjbryant/errant" target="_blank" rel="noopener">https://github.com/chrisjbryant/errant</a></p>
-<p><strong>better to know</strong><br>edits → 编辑的内容<br>linguistically-enhanced alignment algorithm → 语言学增强对齐算法<br>Gold Reference → 专家批注<br>Auto Reference → 自动批注</p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>Errant是一个语法错误标注工具，可以从平行语料（原句，纠正过的句子）中自动提取edits，并进行分类。方法包含两个主要步骤：</p>
-<ol>
-<li>通过语言学增强对齐算法找出平行语料间的edits；</li>
-<li>通过新的，基于规则的框架，该框架仅仅依赖数据集不可知的信息（词根、词性标注），将edits进行分类。</li>
-</ol>
-<h3 id="编辑提取"><a href="#编辑提取" class="headerlink" title="编辑提取"></a>编辑提取</h3><p>自动标注的第一步是编辑提取（edits extraction）。<br><img src="/images/errant/1.png" alt="sentence alignment"></p>
-<p>Felice提出了一种新方法来提取edits，融合了一套合并规则的语言学增强对齐算法。更特别的是，融入了不同的语言学信息（比如词性标注和词根）到编辑距离的代价函数中，使得具有相似语言学属性的token能对齐。</p>
-<h3 id="自动错误分类"><a href="#自动错误分类" class="headerlink" title="自动错误分类"></a>自动错误分类</h3><ol>
-<li><p>基于规则的错误分类框架<br>根据词性标注，编写了50条规则来进行分类。错误类型主要分为25种。</p>
-</li>
-<li><p>数据集未知的分类器<br>基于规则的方法一个关键优势是：独立于数据集，完全不需要标注的训练数据。第二个显著的优势是：这个方法能准确地将edits分到特定的类别。相反，人类和机器学习的分类决策没有这么透明。</p>
-</li>
-<li><p>自动标注<br>使用到以下工具：<br>spaCy: 词性标注、词性还原、句法依存解析<br>NLTK: 词干提取<br>Hunspell GB-large word list: non-word errors</p>
-</li>
-<li><p>错误类别<br>错误类别有25种，前缀有：’M’, ‘R’, ‘U’。通过前缀和后缀的组合，能从不同的层面考察系统的表现。<br>‘M’: Missing<br>‘R’: Replacement<br>‘U’: Unnecessary</p>
-</li>
-</ol>
-<h3 id="错误类型得分"><a href="#错误类型得分" class="headerlink" title="错误类型得分"></a>错误类型得分</h3><ol>
-<li><p>Gold Reference VS Auto Reference<br>在CoNLL-2014 共享任务中进行测评，结果显示，自动批注质量和专家批注效果一样好。</p>
-</li>
-<li><p>与M2评分对比<br>M2评分偏高</p>
-</li>
-</ol>
-<h3 id="CoNLL-2014-共享任务分析"><a href="#CoNLL-2014-共享任务分析" class="headerlink" title="CoNLL-2014 共享任务分析"></a>CoNLL-2014 共享任务分析</h3><p>选择CoNLL-2014 共享任务的数据来测试ERRANT工具，因为该任务收集了最多的GEC系统生成的公开数据。</p>
-<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>ERRANT为GEC错误类型评估提供便利，并且将现存的错误纠正语料标准化，减少标注的工作量。</p>
-
+        <p>原文地址：<a href="https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/" target="_blank" rel="noopener">https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/</a></p>
+<h3 id="BERT-NLP最先进的语言模型"><a href="#BERT-NLP最先进的语言模型" class="headerlink" title="BERT - NLP最先进的语言模型"></a>BERT - NLP最先进的语言模型</h3><p>BERT(Bidirectional Encoder Representation from Transformers) 是最近谷歌AI语言研究员发表的一篇文章。它已经在机器学习社区引起了骚动，因为它在多个NLP任务中取得了最先进的结果，包括问答、自然语言推断等。</p>
+<p>BERT关键的技术创新在于将transformer的双向训练（流行的注意力模型）应用在语言建模中。这与以往的方法形成对比，无论是从左到右还是结合从左到右和从右到左训练文本序列。论文结果表明：双向训练的语言模型比起单向语言模型，对语言文本有更深的理解。在论文中，研究人员详尽阐述了创新的技术Masked LM (MLM)，实现了在模型中使用双向训练，这在以往是不可能的。</p>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>在计算机视觉领域，研究人员发现迁移学习很有效，比如ImageNet，在已知任务上预训练神经网络模型，然后在新的指定任务上进行微调。近来，研究人员证实了相似的技术在许多自然语言任务中也很有效。<br>另有一个方法feature-based training，在NLP任务中也很流行，在最近的ELMo论文中例证了。在这个方法中，预训练的神经网络产生word embeddings——随后作为NLP模型的特征。</p>
+<h3 id="How-BERT-works"><a href="#How-BERT-works" class="headerlink" title="How BERT works"></a>How BERT works</h3><p>BERT利用Transformer——注意力机制——学习文本中词语之间的上下文关系。在Transformer最原始的形式中，包含两个分离的机制——一个读取文本的编码器，一个为任务产生预测的解码器。因为BERT的目标是生成一个语言模型，只需要一个编码器。谷歌另一篇论文详细阐述了Transformer的原理。<br>与方向性模型形成鲜明对比，transformer编码器一次性读取整串词，其它模型按顺序读取文本（从左到右或者从右到左）。因此transformer被看作是双向的，尽管称为无方向更准确。这个特征让模型学习词的语义——基于它所有的周围的词（左边和右边的词）。<br>下图很好的描述了transformer encoder。输入是一串token，先嵌入成向量，然后放入神经网络中处理。输出是一个大小为H的向量，每个向量对应一个相同index的输入token。<br><img src="/images/bert/1.png" alt="transformer encoder"><br>训练语言模型时，如何定义预测目标是一个问题。许多模型预测序列中的下一个词（e.g. “The child came home from ___”），方向性的方法自身限制了上下文学习。BERT使用两种训练策略，解决这个问题。</p>
+<h3 id="Masked-LM-MLM"><a href="#Masked-LM-MLM" class="headerlink" title="Masked LM(MLM)"></a>Masked LM(MLM)</h3>
     </div>
 
     
@@ -295,7 +265,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/nlp-gec/" rel="tag"># nlp, gec</a>
+              <a href="/tags/nlp-translation/" rel="tag"># nlp, translation</a>
             
           </div>
         
@@ -305,8 +275,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/16/lights/" rel="next" title="lights">
-                  <i class="fa fa-chevron-left"></i> lights
+                <a href="/2019/09/18/gec/" rel="next" title="gec">
+                  <i class="fa fa-chevron-left"></i> gec
                 </a>
               
             </div>
@@ -314,10 +284,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/18/gec/" rel="prev" title="gec">
-                  gec <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -366,7 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动标注和错误类型评估——语法错误纠正"><span class="nav-number">1.</span> <span class="nav-text">自动标注和错误类型评估——语法错误纠正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摘要"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑提取"><span class="nav-number">3.</span> <span class="nav-text">编辑提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动错误分类"><span class="nav-number">4.</span> <span class="nav-text">自动错误分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误类型得分"><span class="nav-number">5.</span> <span class="nav-text">错误类型得分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CoNLL-2014-共享任务分析"><span class="nav-number">6.</span> <span class="nav-text">CoNLL-2014 共享任务分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BERT-NLP最先进的语言模型"><span class="nav-number">1.</span> <span class="nav-text">BERT - NLP最先进的语言模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-BERT-works"><span class="nav-number">3.</span> <span class="nav-text">How BERT works</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Masked-LM-MLM"><span class="nav-number">4.</span> <span class="nav-text">Masked LM(MLM)</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
