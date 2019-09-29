@@ -1635,12 +1635,13 @@ article:last-child .post-eof {
   display: inline-block;
 }
 .site-author-image {
-  border: 2px solid #333;
+  border: 0px solid #333;
   display: block;
-  height: auto;
+  height: 96px;
   margin: 0 auto;
   max-width: 96px;
   padding: 2px;
+  object-fit: cover;
   border-radius: 50%;
 }
 .site-author-name {
@@ -1669,7 +1670,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c43d2b;
+  background: #b3cf0a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
