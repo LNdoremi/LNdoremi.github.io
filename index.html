@@ -378,7 +378,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-27 17:10:20" itemprop="dateModified" datetime="2019-09-27T17:10:20+08:00">2019-09-27</time>
+                <time title="Modified: 2019-09-29 10:20:09" itemprop="dateModified" datetime="2019-09-29T10:20:09+08:00">2019-09-29</time>
               </span>
             
           
@@ -421,8 +421,17 @@
 </ol>
 <h3 id="How-to-use-BERT-Fine-tuning"><a href="#How-to-use-BERT-Fine-tuning" class="headerlink" title="How to use BERT(Fine-tuning)"></a>How to use BERT(Fine-tuning)</h3><p>使用BERT完成指定的任务非常的简明：<br>BERT可以用来做很多语言任务，只需要在核心模型中添加一个小层：</p>
 <ol>
-<li>像情感分析这样的分类任务与下一句分类相似，在[CLS]</li>
+<li>像情感分析这样的分类任务与下一句分类相似，在transformer输出[CLS]token的顶层添加一个分类层。</li>
+<li>在问答任务中，软件接收问题的文本序列，需要在序列中标记答案。使用BERT，可以通过学习两个额外的向量——标记了答案的起点和终点，来训练问答模型。</li>
+<li>在命名实体识别（NER）中，软件接收一个文本序列，标记出文本中出现的不同的实体（人名，机构，日期等）。使用BERT，可以将每个token输出的向量放入预测NER标签的分类层来训练NER模型。</li>
 </ol>
+<p>在fine-tuning训练中，大部分的超参和BERT训练保持一致，并且论文给出了需要调节的超参的详细指导。BERT团队使用这个技术在很多具有挑战性的自然语言任务中取得了最先进的成果。<br>注意：BERT预训练模型也可以用来生成文本向量，与其它基于特征的模型相似，比如说doc2vec和ELMo。论文发现连接编码器最后四层可以获得最好的嵌入向量。</p>
+<h3 id="Takeaways"><a href="#Takeaways" class="headerlink" title="Takeaways"></a>Takeaways</h3><ol>
+<li>模型的大小会有影响，即便是大规模。BERT LARGE有345百万的参数，是最大的BERT模型，证实了比小规模的BERT BASE效果好，BERT BASE与 BERT LARGE原理相同，只不过“只有”110百万个参数。</li>
+<li>有足够的训练数据时，更多的训练步骤 == 更高的精度。举个例子，在MNLI任务中，使用相同的batch size，训练步数由1M变为500k时，BERT BASE精度提升了1.0%。</li>
+<li>BERT双向方法（MLM）比从左到右的方法收敛得慢，因为每次只有15%的的词被预测。然而在少量的预训练步骤之后，双向训练依旧优于从左到右的训练。<br><img src="/images/bert/4.png" alt="transformer encoder"></li>
+</ol>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>BERT毫无疑问在自然语言处理的机器学习领域取得了重大的突破。它的可接触性、允许快速的fine-tuning在未来很有可能被广泛的实践与应用。</p>
 
         
       
