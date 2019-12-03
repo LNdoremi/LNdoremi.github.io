@@ -223,6 +223,78 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/linux常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LNdoremi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LNdoremi">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/12/03/linux常用命令/" class="post-title-link" itemprop="url">linux常用命令</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-12-03 16:02:59 / Modified: 16:04:28" itemprop="dateCreated datePublished" datetime="2019-12-03T16:02:59+08:00">2019-12-03</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="linux常用的命令"><a href="#linux常用的命令" class="headerlink" title="linux常用的命令"></a>linux常用的命令</h3>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/BLEU/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -252,7 +324,7 @@
                 
               
 
-              <time title="Created: 2019-12-03 10:14:01 / Modified: 15:42:34" itemprop="dateCreated datePublished" datetime="2019-12-03T10:14:01+08:00">2019-12-03</time>
+              <time title="Created: 2019-12-03 10:14:01 / Modified: 16:21:07" itemprop="dateCreated datePublished" datetime="2019-12-03T10:14:01+08:00">2019-12-03</time>
             </span>
           
             
@@ -298,8 +370,8 @@
 <li>一套人工翻译的高质量参考译文。</li>
 </ol>
 <p><strong>多元精度</strong><br>n-gram精度得分可以衡量翻译评估的充分性和流畅性两个指标：<br>一元组属于字符级别，提现翻译的充分性，衡量逐字翻译能力；多元组是词汇级别，提现翻译的流畅性，词组准了，说话自然相对流畅了。<br><strong>组合多元精度</strong><br>采取几何加权平均，将各个n-gram的作用视为同等重要，权重服从均匀分布。<br><strong>短译句惩罚</strong><br>短译句容易得高分，BP代表译句较短惩罚值。</p>
-<h3 id="四、实现"><a href="#四、实现" class="headerlink" title="四、实现"></a>四、实现</h3><p>在nltk的工具包中实现：<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/nltk_bleu.png?x-oss-process=style/resize_w_1200" alt="nltk bleu"></p>
-
+<h3 id="四、实现"><a href="#四、实现" class="headerlink" title="四、实现"></a>四、实现</h3><p>在nltk的工具包中实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.translate.bleu_score <span class="keyword">import</span> sentence_bleu, corpus_bleu</span><br><span class="line"><span class="keyword">from</span> nltk.translate.bleu_score <span class="keyword">import</span> SmoothingFunction</span><br><span class="line"></span><br><span class="line">reference = [[<span class="string">'The'</span>, <span class="string">'cat'</span>, <span class="string">'is'</span>, <span class="string">'on'</span>, <span class="string">'the'</span>, <span class="string">'mat'</span>]]</span><br><span class="line">candidate = [<span class="string">'The'</span>, <span class="string">'cat'</span>, <span class="string">'sat'</span>, <span class="string">'on'</span>, <span class="string">'the'</span>, <span class="string">'mat'</span>]</span><br><span class="line"></span><br><span class="line">smooth = SmoothingFunction() <span class="comment"># 定义平滑对象</span></span><br><span class="line">score = sentence_bleu(reference, candidate, weights=(<span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">0.25</span>), smoothing_function=smooth.method1)</span><br><span class="line">corpus_score = corpus_bleu([reference], [candidate], smoothing_function=smooth.method1)</span><br><span class="line">print(<span class="string">'score: '</span>, score)</span><br><span class="line">print(<span class="string">'corpus_score: '</span>, corpus_score)</span><br><span class="line"><span class="comment"># score: 0.25406637407730737</span></span><br><span class="line"><span class="comment"># corpus_score: 0.25406637407730737</span></span><br></pre></td></tr></table></figure>
         
       
     </div>
@@ -1121,101 +1193,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/16/lights/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNdoremi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNdoremi">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/16/lights/" class="post-title-link" itemprop="url">lights</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-09-16 11:44:30" itemprop="dateCreated datePublished" datetime="2019-09-16T11:44:30+08:00">2019-09-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-15 12:07:04" itemprop="dateModified" datetime="2019-10-15T12:07:04+08:00">2019-10-15</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/photos/" itemprop="url" rel="index"><span itemprop="name">photos</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/train_1.jpg" alt="lovely train"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/train_2.jpg" alt="lovely train"></p>
-<p>夕阳沉入铁轨的尽头<br>一个小火车闪着灯开过来<br>是真的小，你看，只有一节车厢<br>像不像一个巡逻的小卫士</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1268,7 +1245,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1294,7 +1271,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
