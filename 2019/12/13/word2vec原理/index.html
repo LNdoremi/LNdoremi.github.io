@@ -55,19 +55,25 @@
   };
 </script>
 
-  <meta name="description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
-<meta name="keywords" content="nlp,translation">
+  <meta name="description" content="推荐阅读：Jay Alammar图解word2vec: https://jalammar.github.io/illustrated-word2vec/word2vec——numpy原生实现: https://www.jianshu.com/p/b65f884c7237 word2vec是什么？Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个">
+<meta name="keywords" content="nlp,word2vec">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BLEU">
-<meta property="og:url" content="http://yoursite.com/2019/12/03/BLEU/index.html">
+<meta property="og:title" content="word2vec原理">
+<meta property="og:url" content="http://yoursite.com/2019/12/13/word2vec原理/index.html">
 <meta property="og:site_name" content="LNdoremi">
-<meta property="og:description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
+<meta property="og:description" content="推荐阅读：Jay Alammar图解word2vec: https://jalammar.github.io/illustrated-word2vec/word2vec——numpy原生实现: https://www.jianshu.com/p/b65f884c7237 word2vec是什么？Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-03T08:21:07.611Z">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow.png?x-oss-process=style/resize_w_1200">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow-data.png?x-oss-process=style/resize_w_1200">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams.png?x-oss-process=style/resize_w_1200">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams-data.png?x-oss-process=style/resize_w_1200">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sgns.png?x-oss-process=style/resize_w_1200">
+<meta property="og:updated_time" content="2019-12-16T08:07:39.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BLEU">
-<meta name="twitter:description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
-  <link rel="canonical" href="http://yoursite.com/2019/12/03/BLEU/">
+<meta name="twitter:title" content="word2vec原理">
+<meta name="twitter:description" content="推荐阅读：Jay Alammar图解word2vec: https://jalammar.github.io/illustrated-word2vec/word2vec——numpy原生实现: https://www.jianshu.com/p/b65f884c7237 word2vec是什么？Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个">
+<meta name="twitter:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow.png?x-oss-process=style/resize_w_1200">
+  <link rel="canonical" href="http://yoursite.com/2019/12/13/word2vec原理/">
 
 
 <script id="page-configurations">
@@ -81,7 +87,7 @@
   };
 </script>
 
-  <title>BLEU | LNdoremi</title>
+  <title>word2vec原理 | LNdoremi</title>
   
 
 
@@ -229,7 +235,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/BLEU/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/13/word2vec原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LNdoremi">
@@ -241,7 +247,7 @@
       <meta itemprop="name" content="LNdoremi">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">BLEU
+        <h2 class="post-title" itemprop="name headline">word2vec原理
 
           
         </h2>
@@ -257,11 +263,19 @@
                 
               
 
-              <time title="Created: 2019-12-03 10:14:01 / Modified: 16:21:07" itemprop="dateCreated datePublished" datetime="2019-12-03T10:14:01+08:00">2019-12-03</time>
+              <time title="Created: 2019-12-13 10:16:19" itemprop="dateCreated datePublished" datetime="2019-12-13T10:16:19+08:00">2019-12-13</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-16 16:07:39" itemprop="dateModified" datetime="2019-12-16T16:07:39+08:00">2019-12-16</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -270,7 +284,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
 
                 
                 
@@ -297,22 +311,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="机器翻译评价指标——BLEU算法"><a href="#机器翻译评价指标——BLEU算法" class="headerlink" title="机器翻译评价指标——BLEU算法"></a>机器翻译评价指标——BLEU算法</h3><h3 id="一、BLEU是什么？"><a href="#一、BLEU是什么？" class="headerlink" title="一、BLEU是什么？"></a>一、BLEU是什么？</h3><p>BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。<br><em>机器翻译结果越接近专业人工翻译的结果，则越好。</em><br><strong>一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。</strong></p>
-<h3 id="二、BLEU的优缺点"><a href="#二、BLEU的优缺点" class="headerlink" title="二、BLEU的优缺点"></a>二、BLEU的优缺点</h3><p><strong>优点</strong><br>方便、快捷、参考价值<br><strong>缺点</strong></p>
-<ol>
-<li>不考虑语法准确性；</li>
-<li>测评精度收到常用词干扰；</li>
-<li>短译句的测评精度有时会较高；</li>
-<li>没有考虑同义词或相似表达的情况，导致合理的翻译被否定。</li>
-</ol>
-<h3 id="三、BLEU的算法"><a href="#三、BLEU的算法" class="headerlink" title="三、BLEU的算法"></a>三、BLEU的算法</h3><p>实现BLEU算法需要以下两个工具：</p>
-<ol>
-<li>衡量机器翻译结果接近人工翻译结果的数值指标；</li>
-<li>一套人工翻译的高质量参考译文。</li>
-</ol>
-<p><strong>多元精度</strong><br>n-gram精度得分可以衡量翻译评估的充分性和流畅性两个指标：<br>一元组属于字符级别，提现翻译的充分性，衡量逐字翻译能力；多元组是词汇级别，提现翻译的流畅性，词组准了，说话自然相对流畅了。<br><strong>组合多元精度</strong><br>采取几何加权平均，将各个n-gram的作用视为同等重要，权重服从均匀分布。<br><strong>短译句惩罚</strong><br>短译句容易得高分，BP代表译句较短惩罚值。</p>
-<h3 id="四、实现"><a href="#四、实现" class="headerlink" title="四、实现"></a>四、实现</h3><p>在nltk的工具包中实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> nltk.translate.bleu_score <span class="keyword">import</span> sentence_bleu, corpus_bleu</span><br><span class="line"><span class="keyword">from</span> nltk.translate.bleu_score <span class="keyword">import</span> SmoothingFunction</span><br><span class="line"></span><br><span class="line">reference = [[<span class="string">'The'</span>, <span class="string">'cat'</span>, <span class="string">'is'</span>, <span class="string">'on'</span>, <span class="string">'the'</span>, <span class="string">'mat'</span>]]</span><br><span class="line">candidate = [<span class="string">'The'</span>, <span class="string">'cat'</span>, <span class="string">'sat'</span>, <span class="string">'on'</span>, <span class="string">'the'</span>, <span class="string">'mat'</span>]</span><br><span class="line"></span><br><span class="line">smooth = SmoothingFunction() <span class="comment"># 定义平滑对象</span></span><br><span class="line">score = sentence_bleu(reference, candidate, weights=(<span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">0.25</span>, <span class="number">0.25</span>), smoothing_function=smooth.method1)</span><br><span class="line">corpus_score = corpus_bleu([reference], [candidate], smoothing_function=smooth.method1)</span><br><span class="line">print(<span class="string">'score: '</span>, score)</span><br><span class="line">print(<span class="string">'corpus_score: '</span>, corpus_score)</span><br><span class="line"><span class="comment"># score: 0.25406637407730737</span></span><br><span class="line"><span class="comment"># corpus_score: 0.25406637407730737</span></span><br></pre></td></tr></table></figure>
+        <p>推荐阅读：<br>Jay Alammar图解word2vec: <a href="https://jalammar.github.io/illustrated-word2vec/" target="_blank" rel="noopener">https://jalammar.github.io/illustrated-word2vec/</a><br>word2vec——numpy原生实现: <a href="https://www.jianshu.com/p/b65f884c7237" target="_blank" rel="noopener">https://www.jianshu.com/p/b65f884c7237</a></p>
+<h3 id="word2vec是什么？"><a href="#word2vec是什么？" class="headerlink" title="word2vec是什么？"></a>word2vec是什么？</h3><p>Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个好处：一是将文本用代数向量表示，机器能够理解，二则向量之间的相关性可以通过余弦距离计算。</p>
+<h3 id="CBOW-and-Skip-grams"><a href="#CBOW-and-Skip-grams" class="headerlink" title="CBOW and Skip-grams"></a>CBOW and Skip-grams</h3><p>CBOW 和 Skip-grams 是word2vec的两种训练模式，产生不同的训练数据。CBOW是用上下文来预测当前词，Skip-grams是用当前词来预测上下文。<br>举个例子，假设输入语料是一句诗“生如夏花之绚烂，死如秋叶之静美。”，采用CBOW和Skip-grams两种方法获得训练数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">"生如夏花之绚烂，死如秋叶之静美。"</span></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line">text_tokenize = nltk.word_tokenize(text)</span><br><span class="line"><span class="comment"># text_tokenize = ["生","如","夏花","之","绚烂","，","死","如","秋叶","之","静美","。"]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>CBOW</strong><br>CBOW将产生12个训练样本：<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow.png?x-oss-process=style/resize_w_1200" alt="cbow"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow-data.png?x-oss-process=style/resize_w_1200" alt="cbow-data"></p>
+<p><strong>Skip-grams</strong><br>Skip-grams将产生42个训练样本：<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams.png?x-oss-process=style/resize_w_1200" alt="skip-grams"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams-data.png?x-oss-process=style/resize_w_1200" alt="skip-grams-data"></p>
+<h3 id="负例采样"><a href="#负例采样" class="headerlink" title="负例采样"></a>负例采样</h3><p><strong>加快训练速度</strong><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sgns.png?x-oss-process=style/resize_w_1200" alt="sgns"></p>
+
     </div>
 
     
@@ -329,7 +336,7 @@
             
               <a href="/tags/nlp/" rel="tag"># nlp</a>
             
-              <a href="/tags/translation/" rel="tag"># translation</a>
+              <a href="/tags/word2vec/" rel="tag"># word2vec</a>
             
           </div>
         
@@ -339,8 +346,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/11/18/又是一个美丽的日落/" rel="next" title="一个美丽的日落">
-                  <i class="fa fa-chevron-left"></i> 一个美丽的日落
+                <a href="/2019/12/05/使用Fairseq训练gec模型/" rel="next" title="使用Fairseq训练gec模型">
+                  <i class="fa fa-chevron-left"></i> 使用Fairseq训练gec模型
                 </a>
               
             </div>
@@ -348,10 +355,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/12/03/linux常用命令/" rel="prev" title="linux常用命令">
-                  linux常用命令 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -400,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译评价指标——BLEU算法"><span class="nav-number">1.</span> <span class="nav-text">机器翻译评价指标——BLEU算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、BLEU是什么？"><span class="nav-number">2.</span> <span class="nav-text">一、BLEU是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、BLEU的优缺点"><span class="nav-number">3.</span> <span class="nav-text">二、BLEU的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、BLEU的算法"><span class="nav-number">4.</span> <span class="nav-text">三、BLEU的算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、实现"><span class="nav-number">5.</span> <span class="nav-text">四、实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#word2vec是什么？"><span class="nav-number">1.</span> <span class="nav-text">word2vec是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CBOW-and-Skip-grams"><span class="nav-number">2.</span> <span class="nav-text">CBOW and Skip-grams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负例采样"><span class="nav-number">3.</span> <span class="nav-text">负例采样</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
