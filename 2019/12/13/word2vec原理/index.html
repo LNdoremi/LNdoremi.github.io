@@ -68,7 +68,8 @@
 <meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams.png?x-oss-process=style/resize_w_1200">
 <meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams-data.png?x-oss-process=style/resize_w_1200">
 <meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sgns.png?x-oss-process=style/resize_w_1200">
-<meta property="og:updated_time" content="2019-12-16T08:07:39.894Z">
+<meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/word2vec_weights.png?x-oss-process=style/resize_w_1200">
+<meta property="og:updated_time" content="2019-12-17T09:43:26.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="word2vec原理">
 <meta name="twitter:description" content="推荐阅读：Jay Alammar图解word2vec: https://jalammar.github.io/illustrated-word2vec/word2vec——numpy原生实现: https://www.jianshu.com/p/b65f884c7237 word2vec是什么？Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个">
@@ -274,7 +275,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-16 16:07:39" itemprop="dateModified" datetime="2019-12-16T16:07:39+08:00">2019-12-16</time>
+                <time title="Modified: 2019-12-17 17:43:26" itemprop="dateModified" datetime="2019-12-17T17:43:26+08:00">2019-12-17</time>
               </span>
             
           
@@ -314,11 +315,14 @@
         <p>推荐阅读：<br>Jay Alammar图解word2vec: <a href="https://jalammar.github.io/illustrated-word2vec/" target="_blank" rel="noopener">https://jalammar.github.io/illustrated-word2vec/</a><br>word2vec——numpy原生实现: <a href="https://www.jianshu.com/p/b65f884c7237" target="_blank" rel="noopener">https://www.jianshu.com/p/b65f884c7237</a></p>
 <h3 id="word2vec是什么？"><a href="#word2vec是什么？" class="headerlink" title="word2vec是什么？"></a>word2vec是什么？</h3><p>Word2vec是用来生成word embeddings的模型，将输入的语料映射到向量空间。这样做有两个好处：一是将文本用代数向量表示，机器能够理解，二则向量之间的相关性可以通过余弦距离计算。</p>
 <h3 id="CBOW-and-Skip-grams"><a href="#CBOW-and-Skip-grams" class="headerlink" title="CBOW and Skip-grams"></a>CBOW and Skip-grams</h3><p>CBOW 和 Skip-grams 是word2vec的两种训练模式，产生不同的训练数据。CBOW是用上下文来预测当前词，Skip-grams是用当前词来预测上下文。<br>举个例子，假设输入语料是一句诗“生如夏花之绚烂，死如秋叶之静美。”，采用CBOW和Skip-grams两种方法获得训练数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">"生如夏花之绚烂，死如秋叶之静美。"</span></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line">text_tokenize = nltk.word_tokenize(text)</span><br><span class="line"><span class="comment"># text_tokenize = ["生","如","夏花","之","绚烂","，","死","如","秋叶","之","静美","。"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">"生如夏花之绚烂，死如秋叶之静美。"</span></span><br><span class="line"><span class="comment"># 分词</span></span><br><span class="line">text_tokenize = nltk.word_tokenize(text)·</span><br><span class="line"><span class="comment"># text_tokenize = ["生","如","夏花","之","绚烂","，","死","如","秋叶","之","静美","。"]</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>CBOW</strong><br>CBOW将产生12个训练样本：<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow.png?x-oss-process=style/resize_w_1200" alt="cbow"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/cbow-data.png?x-oss-process=style/resize_w_1200" alt="cbow-data"></p>
 <p><strong>Skip-grams</strong><br>Skip-grams将产生42个训练样本：<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams.png?x-oss-process=style/resize_w_1200" alt="skip-grams"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/skip-grams-data.png?x-oss-process=style/resize_w_1200" alt="skip-grams-data"></p>
-<h3 id="负例采样"><a href="#负例采样" class="headerlink" title="负例采样"></a>负例采样</h3><p><strong>加快训练速度</strong><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sgns.png?x-oss-process=style/resize_w_1200" alt="sgns"></p>
+<h3 id="负例采样"><a href="#负例采样" class="headerlink" title="负例采样"></a>负例采样</h3><ol>
+<li>将预测相邻单词的任务，切换为提取输入与输出单词的模型，并输出一个表明它们是否是邻居的分数，0表示“不是邻居”，1表示“邻居”。这个简单的转变将神经网络改为逻辑回归模型——<strong>加快训练速度</strong>。</li>
+<li>添加负样本，输出词从词汇表中随机抽取单词。<br>切换之后训练数据集的结构如下:<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sgns.png?x-oss-process=style/resize_w_1200" alt="sgns"><h3 id="Word2vec训练"><a href="#Word2vec训练" class="headerlink" title="Word2vec训练"></a>Word2vec训练</h3>word2vec训练的的两个核心思想分别是Skip-grams和负例采样。<br>训练开始时，创建两个矩阵——Embedding矩阵和Context矩阵（随机值初始化）。其中，vocab_size表示词典大小，embedding_size表示嵌入长度。<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/word2vec_weights.png?x-oss-process=style/resize_w_1200" alt="word2vec_weights"></li>
+</ol>
 
     </div>
 
@@ -355,6 +359,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/12/17/word2vec的实现/" rel="prev" title="word2vec的实现">
+                  word2vec的实现 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -403,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#word2vec是什么？"><span class="nav-number">1.</span> <span class="nav-text">word2vec是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CBOW-and-Skip-grams"><span class="nav-number">2.</span> <span class="nav-text">CBOW and Skip-grams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负例采样"><span class="nav-number">3.</span> <span class="nav-text">负例采样</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#word2vec是什么？"><span class="nav-number">1.</span> <span class="nav-text">word2vec是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CBOW-and-Skip-grams"><span class="nav-number">2.</span> <span class="nav-text">CBOW and Skip-grams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负例采样"><span class="nav-number">3.</span> <span class="nav-text">负例采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec训练"><span class="nav-number">4.</span> <span class="nav-text">Word2vec训练</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -421,7 +429,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
