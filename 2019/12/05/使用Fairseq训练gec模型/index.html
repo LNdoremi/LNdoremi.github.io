@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="LNdoremi">
 <meta property="og:description" content="实现过程参考猿辅导团队和Kakao团队的项目：猿辅导:https://github.com/zhawe01/fairseq-gecKakao:https://github.com/kakaobrain/helo_word Fairseq是什么？Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-06T02:29:48.594Z">
+<meta property="og:updated_time" content="2019-12-24T08:00:58.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Fairseq训练gec模型">
 <meta name="twitter:description" content="实现过程参考猿辅导团队和Kakao团队的项目：猿辅导:https://github.com/zhawe01/fairseq-gecKakao:https://github.com/kakaobrain/helo_word Fairseq是什么？Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。">
@@ -268,7 +268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-06 10:29:48" itemprop="dateModified" datetime="2019-12-06T10:29:48+08:00">2019-12-06</time>
+                <time title="Modified: 2019-12-24 16:00:58" itemprop="dateModified" datetime="2019-12-24T16:00:58+08:00">2019-12-24</time>
               </span>
             
           
@@ -307,6 +307,12 @@
       
         <p>实现过程参考猿辅导团队和Kakao团队的项目：<br>猿辅导:<a href="https://github.com/zhawe01/fairseq-gec" target="_blank" rel="noopener">https://github.com/zhawe01/fairseq-gec</a><br>Kakao:<a href="https://github.com/kakaobrain/helo_word" target="_blank" rel="noopener">https://github.com/kakaobrain/helo_word</a></p>
 <h3 id="Fairseq是什么？"><a href="#Fairseq是什么？" class="headerlink" title="Fairseq是什么？"></a>Fairseq是什么？</h3><p>Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。它提供了各种序列到序列模型的参考实现，包括长短期记忆（LSTM）网络和新型卷积神经网络（CNN），其生成翻译的速度比相当的递归神经网络（RNN）模型快很多倍。</p>
+<h3 id="fairseq-preprocess"><a href="#fairseq-preprocess" class="headerlink" title="fairseq-preprocess"></a>fairseq-preprocess</h3><p>数据预处理：建立词表、训练数据二值化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TEXT=&lt;text_path&gt;</span><br><span class="line">fairseq-preprocess --source-lang src --target-lang tgt \</span><br><span class="line">    --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \</span><br><span class="line">    --destdir data-bin</span><br></pre></td></tr></table></figure>
+
+<h3 id="fairseq-generate"><a href="#fairseq-generate" class="headerlink" title="fairseq-generate"></a>fairseq-generate</h3><p>用训练好的模型翻译预处理后的数据</p>
+<h3 id="fairseq-interactive"><a href="#fairseq-interactive" class="headerlink" title="fairseq-interactive"></a>fairseq-interactive</h3><p>用训练好的模型翻译原始数据</p>
+<p><strong>raw-text</strong>指的是分词后的句子，<strong>pre-processed data</strong>指的是bin文件</p>
 
     </div>
 
@@ -397,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fairseq是什么？"><span class="nav-number">1.</span> <span class="nav-text">Fairseq是什么？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fairseq是什么？"><span class="nav-number">1.</span> <span class="nav-text">Fairseq是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fairseq-preprocess"><span class="nav-number">2.</span> <span class="nav-text">fairseq-preprocess</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fairseq-generate"><span class="nav-number">3.</span> <span class="nav-text">fairseq-generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fairseq-interactive"><span class="nav-number">4.</span> <span class="nav-text">fairseq-interactive</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -415,7 +421,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -441,7 +447,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
