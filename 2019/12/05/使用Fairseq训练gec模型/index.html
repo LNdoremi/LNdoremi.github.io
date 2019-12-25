@@ -64,7 +64,7 @@
 <meta property="og:description" content="实现过程参考猿辅导团队和Kakao团队的项目：猿辅导:https://github.com/zhawe01/fairseq-gecKakao:https://github.com/kakaobrain/helo_word Fairseq是什么？Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/fairseq-preprocess.png?x-oss-process=style/resize_w_1200">
-<meta property="og:updated_time" content="2019-12-25T06:29:24.417Z">
+<meta property="og:updated_time" content="2019-12-25T06:32:04.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Fairseq训练gec模型">
 <meta name="twitter:description" content="实现过程参考猿辅导团队和Kakao团队的项目：猿辅导:https://github.com/zhawe01/fairseq-gecKakao:https://github.com/kakaobrain/helo_word Fairseq是什么？Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。">
@@ -270,7 +270,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 14:29:24" itemprop="dateModified" datetime="2019-12-25T14:29:24+08:00">2019-12-25</time>
+                <time title="Modified: 2019-12-25 14:32:04" itemprop="dateModified" datetime="2019-12-25T14:32:04+08:00">2019-12-25</time>
               </span>
             
           
@@ -310,7 +310,7 @@
         <p>实现过程参考猿辅导团队和Kakao团队的项目：<br>猿辅导:<a href="https://github.com/zhawe01/fairseq-gec" target="_blank" rel="noopener">https://github.com/zhawe01/fairseq-gec</a><br>Kakao:<a href="https://github.com/kakaobrain/helo_word" target="_blank" rel="noopener">https://github.com/kakaobrain/helo_word</a></p>
 <h3 id="Fairseq是什么？"><a href="#Fairseq是什么？" class="headerlink" title="Fairseq是什么？"></a>Fairseq是什么？</h3><p>Fairseq(-py)是Facebook人工智能研究院研发的一个序列建模工具包，使研发人员可以训练自定义模型来进行翻译、摘要、语言建模和其他文本生成任务。它提供了各种序列到序列模型的参考实现，包括长短期记忆（LSTM）网络和新型卷积神经网络（CNN），其生成翻译的速度比相当的递归神经网络（RNN）模型快很多倍。</p>
 <h3 id="fairseq-preprocess"><a href="#fairseq-preprocess" class="headerlink" title="fairseq-preprocess"></a>fairseq-preprocess</h3><p>数据预处理：建立词表、训练数据二值化</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TEXT=&lt;text_path&gt;</span><br><span class="line">fairseq-preprocess --source-lang src --target-lang tgt \</span><br><span class="line">    --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \</span><br><span class="line">    --destdir data-bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TEXT=&lt;text_path&gt;</span><br><span class="line">fairseq-preprocess --source-lang src --target-lang tgt \</span><br><span class="line">    --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \</span><br><span class="line">    --destdir data-bin</span><br></pre></td></tr></table></figure>
 
 <p><strong>Named Arguments</strong></p>
 <table>
@@ -387,10 +387,10 @@
 ### fairseq-train
 
 <h3 id="fairseq-generate"><a href="#fairseq-generate" class="headerlink" title="fairseq-generate"></a>fairseq-generate</h3><p>用训练好的模型翻译预处理后的数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_BIN=&lt;data_bin_path&gt;</span><br><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-generate $DATA_BIN \</span><br><span class="line">    --path $MODEL_DIR/model.pt \</span><br><span class="line">    --batch-size <span class="number">128</span> --beam <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_BIN=&lt;data_bin_path&gt;</span><br><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-generate $DATA_BIN \</span><br><span class="line">    --path $MODEL_DIR/model.pt \</span><br><span class="line">    --batch-size 128 --beam 5</span><br></pre></td></tr></table></figure>
 
 <h3 id="fairseq-interactive"><a href="#fairseq-interactive" class="headerlink" title="fairseq-interactive"></a>fairseq-interactive</h3><p>用训练好的模型翻译原始数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-interactive \</span><br><span class="line">    --path $MODEL_DIR/model.pt $MODEL_DIR \</span><br><span class="line">    --beam <span class="number">5</span> --source-lang src --target-lang tgt \</span><br><span class="line">    --tokenizer moses \</span><br><span class="line">    --bpe subword_nmt --bpe-codes $MODEL_DIR/bpecodes</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-interactive \</span><br><span class="line">    --path $MODEL_DIR/model.pt $MODEL_DIR \</span><br><span class="line">    --beam 5 --source-lang src --target-lang tgt \</span><br><span class="line">    --tokenizer moses \</span><br><span class="line">    --bpe subword_nmt --bpe-codes $MODEL_DIR/bpecodes</span><br></pre></td></tr></table></figure>
 
 <p><strong>raw-text</strong>指的是分词后的句子，<strong>pre-processed data</strong>指的是bin文件</p>
 </div></div>
