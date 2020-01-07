@@ -223,6 +223,191 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/nlp有用的工具包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LNdoremi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LNdoremi">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/07/nlp有用的工具包/" class="post-title-link" itemprop="url">nlp有用的工具包</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-07 16:07:55 / Modified: 16:09:44" itemprop="dateCreated datePublished" datetime="2020-01-07T16:07:55+08:00">2020-01-07</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="nlp有用的工具包"><a href="#nlp有用的工具包" class="headerlink" title="nlp有用的工具包"></a>nlp有用的工具包</h3><ul>
+<li><p>pypinyin<br>将中文转换成拼音</p>
+</li>
+<li><p>enchant<br>检查英文拼写错误</p>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/python常用函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LNdoremi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LNdoremi">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/07/python常用函数/" class="post-title-link" itemprop="url">python常用函数</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-07 16:03:07 / Modified: 16:15:37" itemprop="dateCreated datePublished" datetime="2020-01-07T16:03:07+08:00">2020-01-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Python-常用函数"><a href="#Python-常用函数" class="headerlink" title="Python 常用函数"></a>Python 常用函数</h3><p><strong>排序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(iterable, cmp=None, key=None, reverse=False)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>iterable 可迭代的对象</li>
+<li>cmp 比较函数</li>
+<li>key 用来进行比较的元素</li>
+<li>reverse 默认False(升序)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lambda [arguments]: expression</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lambda</span><span class="params">(arguments)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> expression</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>字典排序（按key）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(d.items(), key=<span class="keyword">lambda</span> s: s[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字典排序（按值）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(d.items(), key=<span class="keyword">lambda</span> s: s[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/pytorch-tensor-常用运算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -540,7 +725,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-25 14:32:04" itemprop="dateModified" datetime="2019-12-25T14:32:04+08:00">2019-12-25</time>
+                <time title="Modified: 2019-12-25 18:29:40" itemprop="dateModified" datetime="2019-12-25T18:29:40+08:00">2019-12-25</time>
               </span>
             
           
@@ -644,10 +829,70 @@
 <td>任务类型</td>
 </tr>
 </tbody></table>
-<p><strong>举个例子</strong><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/fairseq-preprocess.png?x-oss-process=style/resize_w_1200" alt="fairseq-preprocess"><br>生成的词表、训练数据如下图所示:</p>
-<div align="left">![fairseq_1](https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/fairseq_1.png?x-oss-process=style/resize_w_1200)<div>
-### fairseq-train
+<p><strong>举个例子</strong><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/fairseq-preprocess.png?x-oss-process=style/resize_w_1200" alt="fairseq-preprocess"><br>生成的词表、训练数据如下图所示:<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/fairseq_1.png?x-oss-process=style/resize_w_1200" alt="fairseq_1"></p>
+<h3 id="fairseq-train"><a href="#fairseq-train" class="headerlink" title="fairseq-train"></a>fairseq-train</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CUDA_VISIBLE_DEVICES=0 fairseq-train data-bin/iwslt14.tokenized.de-en \</span><br><span class="line">    --lr 0.25 --clip-norm 0.1 --dropout 0.2 --max-tokens 4000 \</span><br><span class="line">    --arch fconv_iwslt_de_en --save-dir checkpoints/fconv</span><br></pre></td></tr></table></figure>
 
+<p>fairseq-train 默认使用机器上全部的gpu, 使用CUDA_VISIBLE_DEVICES可以指定gpu<br><strong>Named Arguments</strong></p>
+<table>
+<thead>
+<tr>
+<th>argument</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data-bin</td>
+<td></td>
+<td>预处理之后的数据</td>
+</tr>
+<tr>
+<td>arch</td>
+<td>fconv</td>
+<td>模型架构</td>
+</tr>
+<tr>
+<td>save-dir</td>
+<td></td>
+<td>模型存储位置</td>
+</tr>
+<tr>
+<td>max-epoch</td>
+<td>0</td>
+<td>停止训练的epoch</td>
+</tr>
+<tr>
+<td>max-tokens</td>
+<td>4000</td>
+<td>一个batch中最多的token数量</td>
+</tr>
+<tr>
+<td>num-workers</td>
+<td>1</td>
+<td>数据加载的子进程个数</td>
+</tr>
+<tr>
+<td>pretrained-model</td>
+<td></td>
+<td>预训练模型的位置</td>
+</tr>
+<tr>
+<td>train-subset</td>
+<td>train</td>
+<td>训练数据集</td>
+</tr>
+<tr>
+<td>valid-subset</td>
+<td>valid</td>
+<td>验证数据集</td>
+</tr>
+<tr>
+<td>lazy-load</td>
+<td></td>
+<td>数据懒加载</td>
+</tr>
+</tbody></table>
+<p><strong>举个例子</strong></p>
 <h3 id="fairseq-generate"><a href="#fairseq-generate" class="headerlink" title="fairseq-generate"></a>fairseq-generate</h3><p>用训练好的模型翻译预处理后的数据</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_BIN=&lt;data_bin_path&gt;</span><br><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-generate $DATA_BIN \</span><br><span class="line">    --path $MODEL_DIR/model.pt \</span><br><span class="line">    --batch-size 128 --beam 5</span><br></pre></td></tr></table></figure>
 
@@ -655,7 +900,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MODEL_DIR=&lt;model_path&gt;</span><br><span class="line">fairseq-interactive \</span><br><span class="line">    --path $MODEL_DIR/model.pt $MODEL_DIR \</span><br><span class="line">    --beam 5 --source-lang src --target-lang tgt \</span><br><span class="line">    --tokenizer moses \</span><br><span class="line">    --bpe subword_nmt --bpe-codes $MODEL_DIR/bpecodes</span><br></pre></td></tr></table></figure>
 
 <p><strong>raw-text</strong>指的是分词后的句子，<strong>pre-processed data</strong>指的是bin文件</p>
-</div></div>
+
         
       
     </div>
@@ -839,7 +1084,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-23 17:49:30" itemprop="dateModified" datetime="2019-12-23T17:49:30+08:00">2019-12-23</time>
+                <time title="Modified: 2020-01-06 17:15:20" itemprop="dateModified" datetime="2020-01-06T17:15:20+08:00">2020-01-06</time>
               </span>
             
           
@@ -881,6 +1126,15 @@
 <p>查看显卡使用情况<br><code>nvidia-smi</code></p>
 <p>查看top进程<br><code>htop</code><br><code>top</code></p>
 <p>解压zip文件<br><code>unzip {file_name}</code></p>
+<p>压缩tar.gz文件<br><code>tar -zcvf {file_name}</code></p>
+<p>解压tar.gz文件<br><code>tar -zxvf {file_name}</code></p>
+<p>查看cuda版本<br><code>nvcc --verison</code></p>
+<p>查看pytorch版本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.__version</span><br></pre></td></tr></table></figure>
+
+<p>查看pytorch匹配的cuda</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.version.cuda</span><br></pre></td></tr></table></figure>
+
 <h3 id="conda常用的命令"><a href="#conda常用的命令" class="headerlink" title="conda常用的命令"></a>conda常用的命令</h3><p>进入环境<br><code>source activate {env_name}</code></p>
 <p>退出环境<br><code>conda deactivate</code></p>
 
@@ -1089,191 +1343,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/好看的滤镜/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNdoremi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNdoremi">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/18/好看的滤镜/" class="post-title-link" itemprop="url">好看的滤镜</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-18 17:16:13 / Modified: 17:21:13" itemprop="dateCreated datePublished" datetime="2019-11-18T17:16:13+08:00">2019-11-18</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/photos/" itemprop="url" rel="index"><span itemprop="name">photos</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>突然发现一个好看的滤镜<br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/filter_grass.jpg?x-oss-process=style/resize_w_1200" alt="roof sunset"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/在GEC中合并伪数据的实证研究/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNdoremi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNdoremi">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/09/在GEC中合并伪数据的实证研究/" class="post-title-link" itemprop="url">在GEC中合并伪数据的实证研究</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-09 15:12:25" itemprop="dateCreated datePublished" datetime="2019-10-09T15:12:25+08:00">2019-10-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-11 10:56:53" itemprop="dateModified" datetime="2019-10-11T10:56:53+08:00">2019-10-11</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="在GEC中合并伪数据的实证研究"><a href="#在GEC中合并伪数据的实证研究" class="headerlink" title="在GEC中合并伪数据的实证研究"></a>在GEC中合并伪数据的实证研究</h3><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>至今，许多研究把语法纠错当做机器翻译的任务，其中，不符合语法规则的句子被当做源语言，符合语法规则的句子被当做目标语言。这个方法允许采用最新的神经MT(machine translation)模型。举个例子，encoder-decoder模型——最初为MT提出的，广泛的应用在GEC中并且在GEC领域取得了显著的成果。<br>然而，在GEC中应用EncDec的挑战在于，EncDec需要大量的训练数据。GEC中最大的公开平行语料（Lang-8）仅有两百万个句子对。因此，有大量的研究——通过增广的方式将伪数据合并到训练数据中。<br>合并伪数据时，需要考虑一下几项实验配置：(i) 生成伪数据的方法, (ii) 伪数据的种子语料库, (iii) 优化设定。然而，在GEC研究领域，关于这些决策的一致性并未达成。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1321,7 +1395,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1347,7 +1421,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -1404,7 +1478,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
