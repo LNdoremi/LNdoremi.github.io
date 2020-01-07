@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
+  <meta name="description" content="一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干扰； 短译句的测评精度有时会较高">
 <meta name="keywords" content="nlp,translation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BLEU">
+<meta property="og:title" content="机器翻译评价指标——BLEU算法">
 <meta property="og:url" content="http://yoursite.com/2019/12/03/BLEU/index.html">
 <meta property="og:site_name" content="LNdoremi">
-<meta property="og:description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
+<meta property="og:description" content="一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干扰； 短译句的测评精度有时会较高">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-03T08:21:07.611Z">
+<meta property="og:updated_time" content="2020-01-07T08:20:27.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BLEU">
-<meta name="twitter:description" content="机器翻译评价指标——BLEU算法一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干">
+<meta name="twitter:title" content="机器翻译评价指标——BLEU算法">
+<meta name="twitter:description" content="一、BLEU是什么？BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。机器翻译结果越接近专业人工翻译的结果，则越好。一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。 二、BLEU的优缺点优点方便、快捷、参考价值缺点  不考虑语法准确性； 测评精度收到常用词干扰； 短译句的测评精度有时会较高">
   <link rel="canonical" href="http://yoursite.com/2019/12/03/BLEU/">
 
 
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>BLEU | LNdoremi</title>
+  <title>机器翻译评价指标——BLEU算法 | LNdoremi</title>
   
 
 
@@ -241,7 +241,7 @@
       <meta itemprop="name" content="LNdoremi">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">BLEU
+        <h2 class="post-title" itemprop="name headline">机器翻译评价指标——BLEU算法
 
           
         </h2>
@@ -257,11 +257,19 @@
                 
               
 
-              <time title="Created: 2019-12-03 10:14:01 / Modified: 16:21:07" itemprop="dateCreated datePublished" datetime="2019-12-03T10:14:01+08:00">2019-12-03</time>
+              <time title="Created: 2019-12-03 10:14:01" itemprop="dateCreated datePublished" datetime="2019-12-03T10:14:01+08:00">2019-12-03</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-07 16:20:27" itemprop="dateModified" datetime="2020-01-07T16:20:27+08:00">2020-01-07</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -297,7 +305,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="机器翻译评价指标——BLEU算法"><a href="#机器翻译评价指标——BLEU算法" class="headerlink" title="机器翻译评价指标——BLEU算法"></a>机器翻译评价指标——BLEU算法</h3><h3 id="一、BLEU是什么？"><a href="#一、BLEU是什么？" class="headerlink" title="一、BLEU是什么？"></a>一、BLEU是什么？</h3><p>BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。<br><em>机器翻译结果越接近专业人工翻译的结果，则越好。</em><br><strong>一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。</strong></p>
+        <h3 id="一、BLEU是什么？"><a href="#一、BLEU是什么？" class="headerlink" title="一、BLEU是什么？"></a>一、BLEU是什么？</h3><p>BLEU全名为：bilingual evaluation understudy，即：双语互译质量评估辅助工具。<br><em>机器翻译结果越接近专业人工翻译的结果，则越好。</em><br><strong>一句机器翻译的话与其对应的几个参考翻译作比较，算出一个综合分数，这个分数越高，说明机器翻译得越好。</strong></p>
 <h3 id="二、BLEU的优缺点"><a href="#二、BLEU的优缺点" class="headerlink" title="二、BLEU的优缺点"></a>二、BLEU的优缺点</h3><p><strong>优点</strong><br>方便、快捷、参考价值<br><strong>缺点</strong></p>
 <ol>
 <li>不考虑语法准确性；</li>
@@ -400,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器翻译评价指标——BLEU算法"><span class="nav-number">1.</span> <span class="nav-text">机器翻译评价指标——BLEU算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、BLEU是什么？"><span class="nav-number">2.</span> <span class="nav-text">一、BLEU是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、BLEU的优缺点"><span class="nav-number">3.</span> <span class="nav-text">二、BLEU的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、BLEU的算法"><span class="nav-number">4.</span> <span class="nav-text">三、BLEU的算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、实现"><span class="nav-number">5.</span> <span class="nav-text">四、实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、BLEU是什么？"><span class="nav-number">1.</span> <span class="nav-text">一、BLEU是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、BLEU的优缺点"><span class="nav-number">2.</span> <span class="nav-text">二、BLEU的优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、BLEU的算法"><span class="nav-number">3.</span> <span class="nav-text">三、BLEU的算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、实现"><span class="nav-number">4.</span> <span class="nav-text">四、实现</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
