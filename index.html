@@ -338,7 +338,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-15 17:58:27" itemprop="dateModified" datetime="2020-01-15T17:58:27+08:00">2020-01-15</time>
+                <time title="Modified: 2020-01-15 18:06:56" itemprop="dateModified" datetime="2020-01-15T18:06:56+08:00">2020-01-15</time>
               </span>
             
           
@@ -367,8 +367,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>排序</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(iterable, cmp=None, key=None, reverse=False)</span><br></pre></td></tr></table></figure>
+          <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(iterable, cmp=None, key=None, reverse=False)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>iterable 可迭代的对象</li>
@@ -380,24 +379,17 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lambda</span><span class="params">(arguments)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> expression</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>字典排序（按key）</p>
+<p><strong>字典排序(按key)</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(d.items(), key=<span class="keyword">lambda</span> s: s[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字典排序（按值）</p>
+
+<p><strong>字典排序(按值)</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(d.items(), key=<span class="keyword">lambda</span> s: s[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<p><strong>随机</strong></p>
-<ol>
-<li><p>列表随机抽取<br>方法是调用<strong>random</strong>, 先打乱顺序(shuffle), 再取前n个需要的元素.</p>
+<h3 id="随机"><a href="#随机" class="headerlink" title="随机"></a>随机</h3><p><strong>列表随机抽取</strong><br>方法是调用<strong>random</strong>, 先打乱顺序(<strong>shuffle</strong>), 再取前n个需要的元素.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">15</span>]</span><br><span class="line">random.shuffle(a)</span><br><span class="line">print(a[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line"><span class="comment">#[13,3,5]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字典随机抽取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">dicta = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>, <span class="string">'e'</span>: <span class="number">5</span>, <span class="string">'f'</span>: <span class="number">6</span>&#125;</span><br><span class="line"><span class="comment"># 抽取键</span></span><br><span class="line">keys_list = random.sample(dicta.keys(), <span class="number">2</span>)</span><br><span class="line">print(keys_list)</span><br><span class="line"><span class="comment">#['c', 'a']</span></span><br><span class="line"><span class="comment"># 抽取值</span></span><br><span class="line">val_list = random.sample(dicta.items(), <span class="number">2</span>)</span><br><span class="line">print(val_list)</span><br><span class="line"><span class="comment"># [('e', 5), ('a', 1)]</span></span><br></pre></td></tr></table></figure></li>
-</ol>
 
+<p><strong>字典随机抽取</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">dicta = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'d'</span>: <span class="number">4</span>, <span class="string">'e'</span>: <span class="number">5</span>, <span class="string">'f'</span>: <span class="number">6</span>&#125;</span><br><span class="line"><span class="comment"># 抽取键</span></span><br><span class="line">keys_list = random.sample(dicta.keys(), <span class="number">2</span>)</span><br><span class="line">print(keys_list)</span><br><span class="line"><span class="comment">#['c', 'a']</span></span><br><span class="line"><span class="comment"># 抽取值</span></span><br><span class="line">val_list = random.sample(dicta.items(), <span class="number">2</span>)</span><br><span class="line">print(val_list)</span><br><span class="line"><span class="comment"># [('e', 5), ('a', 1)]</span></span><br></pre></td></tr></table></figure>
         
       
     </div>
