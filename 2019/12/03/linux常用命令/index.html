@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="LNdoremi">
 <meta property="og:description" content="从服务器下载数据scp -r root@43.224.34.73:/home/lk /root 移动文件/文件夹mv &amp;lt;source_path&amp;gt; &amp;lt;target_path&amp;gt; 拷贝文件/文件夹cp -r &amp;lt;source_path&amp;gt; &amp;lt;target_path&amp;gt; 查看已安装的包pip list 查看python版本which python 切换python">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-07T08:19:14.300Z">
+<meta property="og:updated_time" content="2020-01-19T02:10:21.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令">
 <meta name="twitter:description" content="从服务器下载数据scp -r root@43.224.34.73:/home/lk /root 移动文件/文件夹mv &amp;lt;source_path&amp;gt; &amp;lt;target_path&amp;gt; 拷贝文件/文件夹cp -r &amp;lt;source_path&amp;gt; &amp;lt;target_path&amp;gt; 查看已安装的包pip list 查看python版本which python 切换python">
@@ -268,7 +268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-07 16:19:14" itemprop="dateModified" datetime="2020-01-07T16:19:14+08:00">2020-01-07</time>
+                <time title="Modified: 2020-01-19 10:10:21" itemprop="dateModified" datetime="2020-01-19T10:10:21+08:00">2020-01-19</time>
               </span>
             
           
@@ -322,13 +322,17 @@
 <p>解压tar.gz文件<br><code>tar -zxvf {file_name}</code></p>
 <p>查看cuda版本<br><code>nvcc --verison</code></p>
 <p>查看pytorch版本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.__version</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">print(torch.__version__)</span><br></pre></td></tr></table></figure>
 
 <p>查看pytorch匹配的cuda</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.version.cuda</span><br></pre></td></tr></table></figure>
 
-<h3 id="conda常用的命令"><a href="#conda常用的命令" class="headerlink" title="conda常用的命令"></a>conda常用的命令</h3><p>进入环境<br><code>source activate {env_name}</code></p>
+<h3 id="conda常用的命令"><a href="#conda常用的命令" class="headerlink" title="conda常用的命令"></a>conda常用的命令</h3><p>创建环境<br><code>conda create --name {env_name}</code></p>
+<p>进入环境<br><code>source activate {env_name}</code></p>
 <p>退出环境<br><code>conda deactivate</code></p>
+<p>删除环境<br><code>conda env remove -n {env_name}</code></p>
+<p>导出当前环境<br><code>conda env export &gt; {yaml_file_name}</code></p>
+<p>导入环境<br><code>conda env create -f {yaml_file_path}</code></p>
 
     </div>
 
@@ -433,7 +437,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

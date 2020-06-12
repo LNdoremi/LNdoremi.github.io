@@ -223,6 +223,88 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LNdoremi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LNdoremi">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/06/12/copy/" class="post-title-link" itemprop="url">python copy & deepcopy</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-06-12 09:38:43 / Modified: 11:14:35" itemprop="dateCreated datePublished" datetime="2020-06-12T09:38:43+08:00">2020-06-12</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Python中的赋值、浅拷贝、深拷贝</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">orig = [<span class="string">'a'</span>, [<span class="string">'a'</span>, <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 赋值</span></span><br><span class="line">assign = orig</span><br><span class="line"><span class="comment"># 浅拷贝</span></span><br><span class="line">shallow_copy = copy.copy(orig)</span><br><span class="line"><span class="comment"># 深拷贝</span></span><br><span class="line">deep_copy = copy.deepcopy(orig)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'======================================='</span>)</span><br><span class="line">print(<span class="string">'原地址:'</span>, id(orig))</span><br><span class="line">print(<span class="string">'赋值地址:'</span>, id(assign))</span><br><span class="line">print(<span class="string">'浅拷贝地址:'</span>, id(shallow_copy))</span><br><span class="line">print(<span class="string">'深拷贝地址:'</span>, id(deep_copy))</span><br><span class="line">print(<span class="string">'======================================='</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'原对象的对象的地址:'</span>, id(orig[<span class="number">0</span>]), id(orig[<span class="number">1</span>]))</span><br><span class="line">print(<span class="string">'浅拷贝 对象的对象的地址:'</span>, id(shallow_copy[<span class="number">0</span>]), id(shallow_copy[<span class="number">1</span>]))</span><br><span class="line">print(<span class="string">'深拷贝 对象的对象的地址:'</span>, id(deep_copy[<span class="number">0</span>]), id(deep_copy[<span class="number">1</span>]))</span><br><span class="line">print(<span class="string">'======================================='</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'改变原对象的值'</span>)</span><br><span class="line">orig[<span class="number">0</span>] = <span class="string">'b'</span></span><br><span class="line">print(<span class="string">'赋值的值:'</span>, assign)</span><br><span class="line">print(<span class="string">'浅拷贝的值:'</span>, shallow_copy)</span><br><span class="line">print(<span class="string">'深拷贝的值:'</span>, deep_copy)</span><br><span class="line">print(<span class="string">'======================================='</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'改变原对象的对象'</span>)</span><br><span class="line">orig[<span class="number">1</span>][<span class="number">0</span>] = <span class="string">'b'</span></span><br><span class="line">print(<span class="string">'赋值的值:'</span>, assign)</span><br><span class="line">print(<span class="string">'浅拷贝的值:'</span>, shallow_copy)</span><br><span class="line">print(<span class="string">'深拷贝的值:'</span>, deep_copy)</span><br><span class="line">print(<span class="string">'======================================='</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">打印结果：</span><br><span class="line">=======================================</span><br><span class="line">原地址:2421034476680</span><br><span class="line">赋值地址:2421034476680</span><br><span class="line">浅拷贝地址:2421034477640</span><br><span class="line">深拷贝地址:2421034477576</span><br><span class="line">=======================================</span><br><span class="line">原对象的对象的地址:2421031698024 2421034450632</span><br><span class="line">浅拷贝对象的对象的地址:2421031698024 2421034450632</span><br><span class="line">深拷贝对象的对象的地址:2421031698024 2421034478152</span><br><span class="line">=======================================</span><br><span class="line">改变原对象的值</span><br><span class="line">赋值的值: [&apos;b&apos;, [&apos;a&apos;, 2]]</span><br><span class="line">浅拷贝的值: [&apos;a&apos;, [&apos;a&apos;, 2]]</span><br><span class="line">深拷贝的值: [&apos;a&apos;, [&apos;a&apos;, 2]]</span><br><span class="line">=======================================</span><br><span class="line">改变原对象的对象</span><br><span class="line">赋值的值: [&apos;b&apos;, [&apos;b&apos;, 2]]</span><br><span class="line">浅拷贝的值: [&apos;a&apos;, [&apos;b&apos;, 2]]</span><br><span class="line">深拷贝的值: [&apos;a&apos;, [&apos;a&apos;, 2]]</span><br><span class="line">=======================================</span><br></pre></td></tr></table></figure>
+
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
+<li>赋值：a和b指向同一个对象；</li>
+<li>浅拷贝：拷贝父对象，不会拷贝对象的内部的子对象，a和b是两个独立的对象，但是他们的子对象还是指向同一对象；</li>
+<li>深拷贝：完全拷贝了父对象及其子对象，完全独立。</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/nlp有用的工具包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1097,7 +1179,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-07 16:19:14" itemprop="dateModified" datetime="2020-01-07T16:19:14+08:00">2020-01-07</time>
+                <time title="Modified: 2020-01-19 10:10:21" itemprop="dateModified" datetime="2020-01-19T10:10:21+08:00">2020-01-19</time>
               </span>
             
           
@@ -1143,13 +1225,17 @@
 <p>解压tar.gz文件<br><code>tar -zxvf {file_name}</code></p>
 <p>查看cuda版本<br><code>nvcc --verison</code></p>
 <p>查看pytorch版本</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.__version</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">print(torch.__version__)</span><br></pre></td></tr></table></figure>
 
 <p>查看pytorch匹配的cuda</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.version.cuda</span><br></pre></td></tr></table></figure>
 
-<h3 id="conda常用的命令"><a href="#conda常用的命令" class="headerlink" title="conda常用的命令"></a>conda常用的命令</h3><p>进入环境<br><code>source activate {env_name}</code></p>
+<h3 id="conda常用的命令"><a href="#conda常用的命令" class="headerlink" title="conda常用的命令"></a>conda常用的命令</h3><p>创建环境<br><code>conda create --name {env_name}</code></p>
+<p>进入环境<br><code>source activate {env_name}</code></p>
 <p>退出环境<br><code>conda deactivate</code></p>
+<p>删除环境<br><code>conda env remove -n {env_name}</code></p>
+<p>导出当前环境<br><code>conda env export &gt; {yaml_file_name}</code></p>
+<p>导入环境<br><code>conda env create -f {yaml_file_path}</code></p>
 
         
       
@@ -1277,93 +1363,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/又是一个美丽的日落/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNdoremi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNdoremi">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/18/又是一个美丽的日落/" class="post-title-link" itemprop="url">一个美丽的日落</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-18 17:25:20 / Modified: 17:51:18" itemprop="dateCreated datePublished" datetime="2019-11-18T17:25:20+08:00">2019-11-18</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/photos/" itemprop="url" rel="index"><span itemprop="name">photos</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sunset_1030_1.jpg?x-oss-process=style/resize_w_1200" alt="sunset"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sunset_1030_2.jpg?x-oss-process=style/resize_w_1200" alt="sunset"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sunset_1030_3.jpg?x-oss-process=style/resize_w_1200" alt="sunset"><br><img src="https://ln-github-blog.oss-cn-shenzhen.aliyuncs.com/sunset_1030_4.jpg?x-oss-process=style/resize_w_1200" alt="sunset"></p>
-<p>我们都记得这个夕阳染红天的日子<br>看一眼这美丽的夕阳，被踹一脚也是值得的<br>希望每天都有美丽的夕阳，慰藉你疲惫的身心<br>从军营出来的你，一定是一名好的战士</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1416,7 +1415,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
