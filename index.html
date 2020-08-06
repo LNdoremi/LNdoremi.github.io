@@ -252,7 +252,7 @@
                 
               
 
-              <time title="Created: 2020-08-06 10:10:54 / Modified: 10:21:35" itemprop="dateCreated datePublished" datetime="2020-08-06T10:10:54+08:00">2020-08-06</time>
+              <time title="Created: 2020-08-06 10:10:54 / Modified: 10:28:15" itemprop="dateCreated datePublished" datetime="2020-08-06T10:10:54+08:00">2020-08-06</time>
             </span>
           
             
@@ -284,32 +284,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="微调（fine-tuning）的策略"><a href="#微调（fine-tuning）的策略" class="headerlink" title="微调（fine-tuning）的策略"></a>微调（fine-tuning）的策略</h1><ol>
+          <h3 id="微调（fine-tuning）的策略"><a href="#微调（fine-tuning）的策略" class="headerlink" title="微调（fine-tuning）的策略"></a>微调（fine-tuning）的策略</h3><ol>
 <li>max_sequence_length怎么取？<br>—— head+tail (对于长文本，保留前128个字符和后382个字符)</li>
 <li>layer 怎么选？<br>—— 最后一层输出的效果最好</li>
 <li>optimizer &amp; learning rate ?<br>—— adam &amp; decay=0.95 &amp; lr=2e-5</li>
 </ol>
-<h1 id="进一步的预训练（Further-pretraining）的策略"><a href="#进一步的预训练（Further-pretraining）的策略" class="headerlink" title="进一步的预训练（Further pretraining）的策略"></a>进一步的预训练（Further pretraining）的策略</h1><ol>
+<h3 id="进一步的预训练（Further-pretraining）的策略"><a href="#进一步的预训练（Further-pretraining）的策略" class="headerlink" title="进一步的预训练（Further pretraining）的策略"></a>进一步的预训练（Further pretraining）的策略</h3><ol>
 <li>within task pretraining (在训练语料上进行预训练)</li>
 <li>in-domain pretraining (同一领域上的语料进行预训练) </li>
 <li>cross-domain pretraining (在不同领域上的语料进行预训练)</li>
 </ol>
-<h3 id="实验结论："><a href="#实验结论：" class="headerlink" title="实验结论："></a>实验结论：</h3><ol>
+<p><strong>实验结论：</strong></p>
+<ol>
 <li>steps： 100k 能达到最优的效果</li>
 <li>in-domain 优于 within-task</li>
 <li>cross-domain 没有明显提升效果（bert-base-uncased 模型训练数据原本就是general domain，因此cross-domain效果并不大）</li>
 </ol>
-<h1 id="不同的方法微调bert模型结果"><a href="#不同的方法微调bert模型结果" class="headerlink" title="不同的方法微调bert模型结果"></a>不同的方法微调bert模型结果</h1><p>bert-in-domain-pretrain-fine-tune &gt; bert-within-task-pretrain-fine-tune &gt; bert-fine-tune &gt; bert-feature &gt; NN</p>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol>
+<h3 id="不同的方法微调bert模型结果"><a href="#不同的方法微调bert模型结果" class="headerlink" title="不同的方法微调bert模型结果"></a>不同的方法微调bert模型结果</h3><p>bert-in-domain-pretrain-fine-tune &gt; bert-within-task-pretrain-fine-tune &gt; bert-fine-tune &gt; bert-feature &gt; NN</p>
+<p><strong>说明：</strong></p>
+<ol>
 <li>further-pretraining 之后再进行fine-tuning的效果优于 仅仅 fine-tuning；</li>
 <li>bert-feature是使用bert模型抽取特征后，作为词向量输入下游任务；</li>
 <li>NN指的是cnn，rnn，lstm，gru，attention等</li>
 </ol>
-<h1 id="bert-base-VS-bert-large"><a href="#bert-base-VS-bert-large" class="headerlink" title="bert base VS bert large"></a>bert base VS bert large</h1><ol>
+<h3 id="bert-base-VS-bert-large"><a href="#bert-base-VS-bert-large" class="headerlink" title="bert base VS bert large"></a>bert base VS bert large</h3><ol>
 <li>bert large 效果优于bert base</li>
 <li>公司机器跑不动，out-of-memory</li>
 </ol>
-<h1 id="bert模型微调最佳实践"><a href="#bert模型微调最佳实践" class="headerlink" title="bert模型微调最佳实践"></a>bert模型微调最佳实践</h1><p>第一步：in-domain further pretraining</p>
+<h3 id="bert模型微调最佳实践"><a href="#bert模型微调最佳实践" class="headerlink" title="bert模型微调最佳实践"></a>bert模型微调最佳实践</h3><p>第一步：in-domain further pretraining</p>
 <p>第二步：fine-tuning</p>
 
         
