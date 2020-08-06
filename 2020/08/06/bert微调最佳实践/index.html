@@ -55,14 +55,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LNdoremi">
-<meta property="og:url" content="http://yoursite.com/tags/nlp-gec/index.html">
+  <meta name="description" content="一、微调（fine-tuning）的策略 max_sequence_length怎么取？—— head+tail (对于长文本，保留前128个字符和后382个字符) layer 怎么选？—— 最后一层输出的效果最好 optimizer &amp;amp; learning rate ?—— adam &amp;amp; decay=0.95 &amp;amp; lr=2e-5二、进一步的预训练（Further pretr">
+<meta name="keywords" content="nlp,bert">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bert微调最佳实践">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/bert微调最佳实践/index.html">
 <meta property="og:site_name" content="LNdoremi">
+<meta property="og:description" content="一、微调（fine-tuning）的策略 max_sequence_length怎么取？—— head+tail (对于长文本，保留前128个字符和后382个字符) layer 怎么选？—— 最后一层输出的效果最好 optimizer &amp;amp; learning rate ?—— adam &amp;amp; decay=0.95 &amp;amp; lr=2e-5二、进一步的预训练（Further pretr">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-08-06T02:18:28.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LNdoremi">
-  <link rel="canonical" href="http://yoursite.com/tags/nlp-gec/">
+<meta name="twitter:title" content="bert微调最佳实践">
+<meta name="twitter:description" content="一、微调（fine-tuning）的策略 max_sequence_length怎么取？—— head+tail (对于长文本，保留前128个字符和后382个字符) layer 怎么选？—— 最后一层输出的效果最好 optimizer &amp;amp; learning rate ?—— adam &amp;amp; decay=0.95 &amp;amp; lr=2e-5二、进一步的预训练（Further pretr">
+  <link rel="canonical" href="http://yoursite.com/2020/08/06/bert微调最佳实践/">
 
 
 <script id="page-configurations">
@@ -70,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Tag: nlp, gec | LNdoremi</title>
+  <title>bert微调最佳实践 | LNdoremi</title>
   
 
 
@@ -201,27 +206,6 @@
 
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 </nav>
 </div>
     </header>
@@ -239,60 +223,149 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">nlp, gec<small>Tag</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/06/bert微调最佳实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LNdoremi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LNdoremi">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">bert微调最佳实践
+
+          
         </h2>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-08-06 10:10:54 / Modified: 10:18:28" itemprop="dateCreated datePublished" datetime="2020-08-06T10:10:54+08:00">2020-08-06</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <h1 id="一、微调（fine-tuning）的策略"><a href="#一、微调（fine-tuning）的策略" class="headerlink" title="一、微调（fine-tuning）的策略"></a>一、微调（fine-tuning）的策略</h1><ol>
+<li>max_sequence_length怎么取？<br>—— head+tail (对于长文本，保留前128个字符和后382个字符)</li>
+<li>layer 怎么选？<br>—— 最后一层输出的效果最好</li>
+<li>optimizer &amp; learning rate ?<br>—— adam &amp; decay=0.95 &amp; lr=2e-5<h1 id="二、进一步的预训练（Further-pretraining）的策略"><a href="#二、进一步的预训练（Further-pretraining）的策略" class="headerlink" title="二、进一步的预训练（Further pretraining）的策略"></a>二、进一步的预训练（Further pretraining）的策略</h1></li>
+<li>within task pretraining (在训练语料上进行预训练)</li>
+<li>in-domain pretraining (同一领域上的语料进行预训练) </li>
+<li>cross-domain pretraining (在不同领域上的语料进行预训练)<h3 id="实验结论："><a href="#实验结论：" class="headerlink" title="实验结论："></a>实验结论：</h3></li>
+<li>steps： 100k 能达到最优的效果</li>
+<li>in-domain 优于 within-task</li>
+<li>cross-domain 没有明显提升效果（bert-base-uncased 模型训练数据原本就是general domain，因此cross-domain效果并不大）<h1 id="三、不同的方法微调bert模型结果"><a href="#三、不同的方法微调bert模型结果" class="headerlink" title="三、不同的方法微调bert模型结果"></a>三、不同的方法微调bert模型结果</h1>bert-in-domain-pretrain-fine-tune &gt; bert-within-task-pretrain-fine-tune &gt; bert-fine-tune &gt; bert-feature &gt; NN</li>
+</ol>
+<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol>
+<li>further-pretraining 之后再进行fine-tuning的效果优于 仅仅 fine-tuning；</li>
+<li>bert-feature是使用bert模型抽取特征后，作为词向量输入下游任务；</li>
+<li>NN指的是cnn，rnn，lstm，gru，attention等<h1 id="四、bert-base-VS-bert-large"><a href="#四、bert-base-VS-bert-large" class="headerlink" title="四、bert base VS bert large"></a>四、bert base VS bert large</h1></li>
+<li>bert large 效果优于bert base</li>
+<li>公司机器跑不动，out-of-memory</li>
+</ol>
+<h1 id="五、bert模型微调最佳实践"><a href="#五、bert模型微调最佳实践" class="headerlink" title="五、bert模型微调最佳实践"></a>五、bert模型微调最佳实践</h1><p>第一步：in-domain further pretraining</p>
+<p>第二步：fine-tuning</p>
 
-  
-  
+    </div>
 
-  
     
-    <div class="collection-year">
-      <h2 class="collection-header">2019</h2>
-    </div>
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
+    
+    
         
-          <a class="post-title-link" href="/2019/12/04/Errant在GEC中的应用/" itemprop="url">
-            <span itemprop="name">Errant在GEC中的应用</span>
-          </a>
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/nlp/" rel="tag"># nlp</a>
+            
+              <a href="/tags/bert/" rel="tag"># bert</a>
+            
+          </div>
         
-      </h3>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-12-04T10:21:43+08:00"
-              content="2019-12-04">
-          12-04
-        </time>
-      </div>
+        
 
-    </header>
-  </article>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/07/03/kappa值的计算方法/" rel="next" title="kappa值的计算方法">
+                  <i class="fa fa-chevron-left"></i> kappa值的计算方法
+                </a>
+              
+            </div>
 
+            <span class="post-nav-divider"></span>
 
-
-    </div>
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
@@ -311,6 +384,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -323,6 +401,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、微调（fine-tuning）的策略"><span class="nav-number">1.</span> <span class="nav-text">一、微调（fine-tuning）的策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、进一步的预训练（Further-pretraining）的策略"><span class="nav-number">2.</span> <span class="nav-text">二、进一步的预训练（Further pretraining）的策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结论："><span class="nav-number">2.0.1.</span> <span class="nav-text">实验结论：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、不同的方法微调bert模型结果"><span class="nav-number">3.</span> <span class="nav-text">三、不同的方法微调bert模型结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明："><span class="nav-number">3.0.1.</span> <span class="nav-text">说明：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、bert-base-VS-bert-large"><span class="nav-number">4.</span> <span class="nav-text">四、bert base VS bert large</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、bert模型微调最佳实践"><span class="nav-number">5.</span> <span class="nav-text">五、bert模型微调最佳实践</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
